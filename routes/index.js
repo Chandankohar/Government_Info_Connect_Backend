@@ -8,7 +8,7 @@ const  upload = multer({ dest: '/tmp' });
 
 router.get('/', (req, res) => {
   res.status(200).json({
-    greeting: 'Hello from airbnb-clone api',
+    greeting: 'Hello from government info connect api',
   });
 });
 
