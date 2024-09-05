@@ -138,7 +138,7 @@ exports.updateAdminDetails = async (req, res) => {
     const updatedAdmin = await admin.save()
     admincookieToken(updatedAdmin, res)
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" }, error)
+    res.status(500).json({ message: "Internal server error" })
   }
 }
 
