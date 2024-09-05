@@ -108,7 +108,6 @@ exports.uploadPicture = async (req, res) => {
 exports.updateUserDetails = async (req, res) => {
   try {
     const { name,contact,email,address, citizenid, picture } = req.body
-console.log(req.body)
     const user = await User.findOne({ citizenid })
 
     if (!user) {
@@ -129,7 +128,7 @@ console.log(req.body)
     const updatedUser = await user.save()
     cookieToken(updatedUser, res)
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" }, error)
+    res.status(500).json({ message: "Internal server error"})
   }
 }
 
