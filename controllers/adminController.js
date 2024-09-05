@@ -134,11 +134,12 @@ exports.updateAdminDetails = async (req, res) => {
     admin.email = email
     admin.contact = contact
     admin.address = address
-    admin.picture = picture
+    if(picture){
+    admin.picture = picture}
     const updatedAdmin = await admin.save()
     admincookieToken(updatedAdmin, res)
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" })
+    res.status(500).json({ message: "Internal server error",success:false })
   }
 }
 
