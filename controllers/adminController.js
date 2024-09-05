@@ -10,7 +10,7 @@ const Adminhired = require('../models/Adminhired');
 // Register/SignUp user
 exports.register = async (req, res) => {
   try {
-    const { name,citizenid,joiningid,municipality,email, address,password } = req.body;
+    const { name,citizenid,joiningid,municipality,email,contact, address,password } = req.body;
     
 
     if (!citizenid || !joiningid || !password) {
@@ -23,14 +23,14 @@ exports.register = async (req, res) => {
     let admin = await Admin.findOne({ joiningid });
     
     const hiredverify=await Adminhired.find({joiningid,municipality,password})
-    console.log('cannot find hired',hiredverify)
+    
     if (admin ) {
       return res.status(400).json({
         message: 'User already registered! ',
       });
     }
     if(hiredverify.length<=0){
-      console.log('cannot find hired',hiredverify)
+      
       return res.status(400).json({
         message: 'your hired details are not matched',
       });
@@ -41,12 +41,13 @@ exports.register = async (req, res) => {
       name,
       citizenid,
       joiningid,
-      municipality:municipality.toLowerCase(),
+      municipality:municipality?.toLowerCase(),
       email, 
+      contact,
       address,
       password,
     });
-    console.log('successfully created')
+    
 
     // after creating new user in DB send the token
     admincookieToken(admin, res);
