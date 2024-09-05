@@ -7,7 +7,7 @@ const cloudinary = require('cloudinary').v2;
 // Register/SignUp user
 exports.register = async (req, res) => {
   try {
-    const { name,citizenid,addedPhotos,address,municipality, email, password, } = req.body;
+    const { name,citizenid,addedPhotos,address,municipality, email,contact, password, } = req.body;
     
     if (!citizenid || !municipality || !password) {
       return res.status(400).json({
@@ -29,8 +29,9 @@ exports.register = async (req, res) => {
       citizenid,
       citizenshipphoto:addedPhotos,
       address,
-      municipality:municipality.toLowerCase(), 
-      email, 
+      municipality:municipality?.toLowerCase(), 
+      email,
+      contact,
       password,
     });
     
