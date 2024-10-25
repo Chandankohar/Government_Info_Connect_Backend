@@ -195,7 +195,7 @@ exports.usersearchScheme = async (req, res) => {
   try {
     const searchword = req.params.key;
     const userdata=req.user 
-    if (searchword.length ===1 || searchword.length ===0) return res.status(200).json(await Scheme.find({municipality:userdata.municipality }))
+    if (searchword.length ===2 || searchword.length ===0) return res.status(200).json(await Scheme.find({municipality:userdata.municipality }))
 
     const searchMatches = await Scheme.find({ schemename: { $regex: searchword, $options: "i" },municipality:userdata.municipality })
 
