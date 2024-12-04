@@ -10,13 +10,14 @@ cloudinary\
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+First,download or clone the repository.
 
 ## Available Scripts
-
 In the project directory, you can run:
 
 ### `Backend`
 you can run backend by following:
+
 ### `first of all create .env  initilize`
 PORT= yourportnumber\
 DB_URL= 'YOUR DATABASE URL'\
@@ -29,6 +30,7 @@ CLOUDINARY_API_KEY= YOUR CLOUDINARY API KEY\
 CLOUDINARY_API_SECRET= YOUR CLOUDINARY API SECRET\
 CLIENT_URL= YOUR CLIENT URL OR BASE URL OF YOUR FRONTEND\
 
+### `npm install`
 
 ### `npm start`
 Runs the backend
@@ -36,5 +38,6 @@ Runs the backend
 
 
 ### `for its frontend goto my another repository:\ https://github.com/Chandankohar/Government_Info_Connect_Frontend `
+Note: if you already setup the frontend then need not to do this.
 
 
